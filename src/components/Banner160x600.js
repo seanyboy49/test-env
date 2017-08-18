@@ -1,7 +1,7 @@
 import React from 'react';
 import imageA from '../image/Q3_JACKETS_imageC_160x600.jpg'
 import whiteLogo from '../image/logo white.png'
-import '../styles/160x600.css';
+import styles from '../styles/160x600.css';
 
 class Banner160x600 extends React.Component {
   constructor(props) {
@@ -21,17 +21,17 @@ class Banner160x600 extends React.Component {
   render() {
     return(
       <div>
-        <div className="main">
-          <img id="image" src={imageA} alt="productImage" ></img>
-          <img id="logo" src={whiteLogo} alt="logo"></img>
-          <div id="wrapper">
-            <div id="copy-container"></div>
+        <div className={styles.main}>
+          <img id={styles.image} src={imageA} alt="productImage" ></img>
+          <img id={styles.logo} src={whiteLogo} alt="logo"></img>
+          <div id={styles.wrapper}>
+            <div id={styles.copyContainer}></div>
           </div>
-          <div id="cta-container">
+          <div id={styles.ctaContainer}>
             <p>SHOP CROPS</p>
-            <div id="blur"></div>
+            <div id={styles.blur}></div>
           </div>
-          <p id="shipping">FREE SHIPPING AND RETURNS</p>
+          <p id={styles.shipping}>FREE SHIPPING AND RETURNS</p>
         </div>
 
       </div>
