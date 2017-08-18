@@ -1,9 +1,10 @@
 import React from 'react';
-import imageA from '../image/Q3_JACKETS_imageC_160x600.jpg'
+import imageA from '../image/Q3_JACKETS_imageC_300x600.jpg'
 import whiteLogo from '../image/logo white.png'
-import '../styles/160x600.css';
+import '../styles/300x600.css';
 
-class Banner160x600 extends React.Component {
+
+class Banner300x600 extends React.Component {
   constructor(props) {
     super(props);
 
@@ -40,4 +41,4 @@ class Banner160x600 extends React.Component {
 }
 
 
-export default Banner160x600;
+export default Banner300x600;

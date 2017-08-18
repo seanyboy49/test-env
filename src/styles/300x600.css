@@ -1,0 +1,126 @@
+@font-face {
+  font-family: CalibreSemibold;
+  src: url("Calibre-Semibold.otf");
+}
+@font-face {
+  font-family: CalibreLight;
+  src: url("Calibre-Light.otf");
+}
+@font-face {
+  font-family: CalibreBold;
+  src: url("Calibre-Bold.otf");
+}
+
+body,body * {
+  vertical-align:baseline;
+  border:0 none;
+  outline:0;
+  margin:0;
+  padding:0;
+}
+
+.main {
+  margin: 0;
+  height: 600px;
+  width: 300px;
+  background-color: #ecf0f1;
+  border-color: #ecf0f1;
+  border-style: solid;
+  border-width: 1px;
+  text-align: center;
+  position: relative;
+}
+
+
+#image {
+  position: absolute;
+  background-position: center top;
+  width: 300px;
+  height: 600px;
+  left: 0;
+  top: 0;
+}
+
+#wrapper {
+  box-sizing: border-box;
+  width: 100%;
+  position: absolute;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.active {
+  visibility: visible;
+}
+
+#logo {
+  position: absolute;
+  top: 20px;
+  z-index: 10;
+}
+
+#copy-container {
+  position: absolute;
+  width: auto;
+}
+
+#copy-container span {
+  padding: 10px 6px 4px 11px;
+  font-size: 16px;
+  color: black;
+  position: relative;
+  line-height: 35px;
+  letter-spacing: 4px;
+  font-family: "CalibreLight";
+  background-color: white;
+}
+
+
+#cta-container {
+  border: 2px solid white;
+  display: table;
+  text-align: center;
+  bottom: 29px;
+  position: absolute;
+  overflow: hidden;
+  z-index: 99;
+}
+
+#blur{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  -webkit-filter: blur(10px);
+  filter: url('/media/blur.svg#blur');
+  filter: blur(3px);
+}
+
+#cta-container p {
+  color: white;
+  top: 4px;
+  position: relative;
+  letter-spacing: 2px;
+  font-size: 16px;
+  margin: 9px 15px;
+  font-family: "CalibreBold";
+  z-index: 100;
+}
+
+#cta-container:hover {
+  cursor: pointer;
+}
+
+
+#shipping{
+  bottom: 5px;
+  position: absolute;
+  font-family: "CalibreLight";
+  color: white;
+  z-index: 100;
+  letter-spacing: 2px;
+  font-size: 13px;
+}
