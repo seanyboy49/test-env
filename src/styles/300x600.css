@@ -25,8 +25,8 @@ body,body * {
   margin: 50px;
   height: 600px;
   width: 300px;
-  background-color: #ecf0f1;
-  border-color: #ecf0f1;
+  background-color: .ecf0f1;
+  border-color: .ecf0f1;
   border-style: solid;
   border-width: 1px;
   text-align: center;
@@ -34,7 +34,7 @@ body,body * {
 }
 
 
-#image {
+.image {
   position: absolute;
   background-position: center top;
   width: 300px;
@@ -43,7 +43,7 @@ body,body * {
   top: 0;
 }
 
-#wrapper {
+.wrapper {
   box-sizing: border-box;
   width: 100%;
   position: absolute;
@@ -57,18 +57,18 @@ body,body * {
   visibility: visible;
 }
 
-#logo {
+.logo {
   position: absolute;
   top: 20px;
   z-index: 10;
 }
 
-#copyContainer {
+.copyContainer {
   position: absolute;
   width: auto;
 }
 
-#copyContainer span {
+.copyContainer span {
   padding: 10px 6px 4px 11px;
   font-size: 16px;
   color: black;
@@ -80,7 +80,7 @@ body,body * {
 }
 
 
-#ctaContainer {
+.ctaContainer {
   border: 2px solid white;
   display: table;
   text-align: center;
@@ -90,18 +90,18 @@ body,body * {
   z-index: 99;
 }
 
-#blur{
+.blur{
   position: absolute;
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
   -webkit-filter: blur(10px);
-  filter: url('/media/blur.svg#blur');
+  filter: url('/media/blur.svg.blur');
   filter: blur(3px);
 }
 
-#ctaContainer p {
+.ctaContainer p {
   color: white;
   top: 4px;
   position: relative;
@@ -112,12 +112,12 @@ body,body * {
   z-index: 100;
 }
 
-#ctaContainer:hover {
+.ctaContainer:hover {
   cursor: pointer;
 }
 
 
-#shipping{
+.shipping{
   bottom: 5px;
   position: absolute;
   font-family: "CalibreLight";
