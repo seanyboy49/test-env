@@ -1,4 +1,5 @@
 import React from 'react';
+import _ from 'lodash';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux'
 import { updateCopy, updateCTA, updateProductColour } from '../actions/index';
@@ -42,31 +43,35 @@ class DynamicInput extends React.Component{
   render() {
     return(
       <div>
-        <form>
-          <label>Copy</label>
-          <input
-            placeholder="Enter Copy"
-            value={this.state.copy}
-            onChange={this.onCopyInputChange}
-            style={style.copyInput}
-          />
-          <label>CTA</label>
-          <input
-            placeholder="Enter CTA"
-            value={this.state.cta}
-            onChange={this.onCTAInputChange}
-            style={style.ctaInput}
-          />
-          <label>Product Colour</label>
-          <input
-            placeholder="Enter Product Colour"
-            value={this.state.productColour}
-            onChange={this.onColourChange}
-            style={style.copyInput}
-          />
+        <form style={style.form}>
+          <div style={style.inputGroup}>
+            <label style={style.label} >Copy</label>
+            <input
+              placeholder="Enter Copy"
+              value={this.state.copy}
+              onChange={this.onCopyInputChange}
+              style={style.generic}
+            />
+          </div>
 
-
-
+          <div style={style.inputGroup}>
+            <label style={style.label} >CTA</label>
+            <input
+              placeholder="Enter CTA"
+              value={this.state.cta}
+              onChange={this.onCTAInputChange}
+              style={style.generic}
+            />
+          </div>
+          <div style={style.inputGroup}>
+            <label style={style.label} >Product Colour</label>
+            <input
+              placeholder="Enter Product Colour"
+              value={this.state.productColour}
+              onChange={this.onColourChange}
+              style={style.generic}
+            />
+          </div>
         </form>
       </div>
     )
@@ -74,21 +79,32 @@ class DynamicInput extends React.Component{
 }
 
 const style = {
-  copyInput: {
+  generic: {
     width: "300px",
     borderRadius: "5px",
-    backgroundColor: "#f2f2f2",
+    backgroundColor: "white",
     padding: "20px",
+    margin: "10px",
+    display: "block"
+  },
+  label: {
+    display: "block",
+    position: "relative",
+    left: "10px",
+    fontSize: "16px",
+    color: "white"
+  },
+  inputGroup: {
+    display: "inline-block",
     margin: "10px"
   },
-  ctaInput: {
-    width: "300px",
-    borderRadius: "5px",
-    backgroundColor: "#f2f2f2",
-    padding: "20px",
-    margin: "10px"
+  form: {
+    backgroundColor: "#3498db",
+    margin: "10px",
+    borderRadius: "5px"
   }
 }
+
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators( { updateCopy, updateCTA, updateProductColour }, dispatch)

@@ -157,7 +157,7 @@ class Banner300x600 extends React.Component {
 
         <form style={style.form}>
           <h1>300x600</h1>
-          
+
           <label style={style.label}>Copy Position</label>
           <input
             placeholder="Enter Copy Position"
@@ -210,7 +210,7 @@ class Banner300x600 extends React.Component {
   }
 }
 
-const style = {
+var style = {
   form: {
     position: "relative",
     display: "inline-block",
@@ -238,7 +238,6 @@ const style = {
     top: "5px",
     left: "12px"
   }
-
 }
 
 function mapStateToProps( state ) {
