@@ -10,7 +10,7 @@ class App extends Component {
     return (
       <div className="App">
         <DynamicInput />
-        <Banner160x600 />
+        {/* <Banner160x600 /> */}
         <Banner300x600 />
         <Banner250x250 />
 

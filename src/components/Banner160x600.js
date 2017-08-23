@@ -21,17 +21,17 @@ class Banner160x600 extends React.Component {
   render() {
     return(
       <div>
-        <div style={style.main}>
-          <img id="image" src={imageA} alt="productImage" style={style.image}></img>
-          <img id="logo" src={whiteLogo} alt="logo" style={style.logo}></img>
-          <div id="wrapper" style={style.wrapper}>
-            <div id="copy-container" style={style.copyContainer}></div>
+        <div >
+          <img id="image" src={imageA} alt="productImage" ></img>
+          <img id="logo" src={whiteLogo} alt="logo" ></img>
+          <div id="wrapper" >
+            <div id="copy-container"></div>
           </div>
-          <div id="cta-container" style={style.ctaContainer}>
-            <p style={style.ctaContainerP}>SHOP CROPS</p>
-            <div id="blur" style={style.blur}></div>
+          <div id="cta-container" >
+            <p>SHOP CROPS</p>
+            <div id="blur"></div>
           </div>
-          <p id="shipping" style={style.shipping}>FREE SHIPPING AND RETURNS</p>
+          <p id="shipping">FREE SHIPPING AND RETURNS</p>
                   </div>
 
       </div>
