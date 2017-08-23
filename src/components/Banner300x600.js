@@ -1,6 +1,8 @@
 import React from 'react';
 import imageA from '../image/Q3_JACKETS_imageC_300x600.jpg'
 import whiteLogo from '../image/logo white.png'
+import blackLogo from '../image/logo black.png'
+
 import styles from '../styles/300x600.css';
 
 import { connect } from 'react-redux';
@@ -12,17 +14,19 @@ class Banner300x600 extends React.Component {
     super(props);
 
     this.state = {
-      logo: null,
+      logo: "white",
       image: null,
       copyTextColour: "",
       ctaColour: "",
-      shippingTextColour: "",
+      shippingColour: "",
       copyPosition: "left bottom"
     }
 
-    this.onCopyPositionChange = this.onCopyPositionChange.bind(this)
-    this.positionCopy = this.positionCopy.bind(this)
-    this.onCTAColourChange=this.onCTAColourChange.bind(this)
+    this.onCopyPositionChange = this.onCopyPositionChange.bind(this);
+    this.positionCopy = this.positionCopy.bind(this);
+    this.onCTAColourChange=this.onCTAColourChange.bind(this);
+    this.onShippingColourChange=this.onShippingColourChange.bind(this);
+    this.onLogoChange=this.onLogoChange.bind(this);
 
   }
 
@@ -36,6 +40,21 @@ class Banner300x600 extends React.Component {
     shipping = document.querySelector("#shipping300x600")
     blur = document.querySelector("#blur300x600");
     this.positionCopy(this.state.copyPosition);
+  }
+
+  onLogoChange(event) {
+    this.setState({ logo: event.target.value }, () => { // this.state is asynchronous so must pass function as a callback to ensure synchronous operation
+      if(this.state.logo==="black") {
+        logo.src=blackLogo
+      } else if(this.state.logo==="white"){
+        logo.src=whiteLogo
+      }
+    });
+  }
+
+  onShippingColourChange(event) {
+    this.setState({ shippingColour: event.target.value })
+    shipping.style.color=event.target.value;
   }
 
   onCopyPositionChange(event) {
@@ -62,6 +81,8 @@ class Banner300x600 extends React.Component {
     logo.style.right=null;
     ctaContainer.style.right=null
     shipping.style.right=null
+    wrapper.style.top=null;
+
 
     var split = position.split(" ");
     if(split[0]==="left"){
@@ -86,7 +107,7 @@ class Banner300x600 extends React.Component {
     } else if(split[1]==="center") {
       copyContainer.style.bottom=null;
       wrapper.style.top="247px";
-    } else {
+    } else if(split[1]==="bottom"){
       copyContainer.style.bottom="-518px";
     }
 }
@@ -113,8 +134,6 @@ class Banner300x600 extends React.Component {
     copySpan.forEach(function(span){
       span.style.backgroundColor=prodColour
     })
-    // ctaContainer.style.borderColor=prodColour;
-    // shipping.style.color=prodColour;
   }
 
   render() {
@@ -136,35 +155,91 @@ class Banner300x600 extends React.Component {
           <p id="shipping300x600" className={styles.shipping}>FREE SHIPPING AND RETURNS</p>
         </div>
 
-        <form>
-          <label>Copy Position</label>
+        <form style={style.form}>
+          <h1>300x600</h1>
+          
+          <label style={style.label}>Copy Position</label>
           <input
             placeholder="Enter Copy Position"
             value={this.state.copyPosition}
             onChange={this.onCopyPositionChange}
-            style={style}
+            style={style.generic}
           />
-          <label>CTA Colour</label>
+          <label style={style.label}>CTA Colour</label>
           <input
             placeholder="Enter CTA Colour"
             value={this.state.ctaColour}
             onChange={this.onCTAColourChange}
-            style={style}
+            style={style.generic}
           />
+          <label style={style.label}>Shipping Text Colour</label>
+          <input
+            placeholder="Enter Shipipng Colour"
+            value={this.state.shippingColour}
+            onChange={this.onShippingColourChange}
+            style={style.generic}
+          />
+          <label style={style.label}>Logo Colour</label>
+          <div style={style.radioGroup}>
+            <label>
+              White
+              <input
+                type="radio"
+                value="white"
+                checked={this.state.logo==="white"}
+                onChange={this.onLogoChange}
+                style={style.radio}
 
-        </form>
+              />
+            </label>
+            <label>
+              Black
+              <input
+                type="radio"
+                value="black"
+                checked={this.state.logo==="black"}
+                onChange={this.onLogoChange}
+                style={style.radio}
+              />
+            </label>
+          </div>
+
+          </form>
       </div>
     )
   }
 }
 
 const style = {
+  form: {
+    position: "relative",
+    display: "inline-block",
+    top: "-200px"
+  },
+  generic:  {
+    display: "block",
     width: "300px",
     borderRadius: "5px",
     backgroundColor: "#f2f2f2",
     padding: "20px",
     margin: "10px"
+  },
+  radio: {
+    padding: "20px",
+    margin: "10px"
+  },
+  label: {
+    display: "inline-block",
+    position: "relative",
+    left: "10px"
+  },
+  radioGroup: {
+    position: "relative",
+    top: "5px",
+    left: "12px"
   }
+
+}
 
 function mapStateToProps( state ) {
   return state;

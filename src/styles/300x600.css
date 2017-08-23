@@ -21,12 +21,12 @@ body,body * {
 }
 
 .main {
-  display: block;
+  display: inline-block;
   margin: 50px;
   height: 600px;
   width: 300px;
-  background-color: .ecf0f1;
-  border-color: .ecf0f1;
+  background-color: #ecf0f1;
+  border-color: #ecf0f1;
   border-style: solid;
   border-width: 1px;
   text-align: center;
