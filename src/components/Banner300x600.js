@@ -1,13 +1,32 @@
 import React from 'react';
-import imageA from '../image/Q3_JACKETS_imageC_300x600.jpg'
+import imageA from '../image/CROPS/Image A/Q3_CROPS_imageA_300x600.jpg'
 import whiteLogo from '../image/logo white.png'
 import blackLogo from '../image/logo black.png'
-
 import styles from '../styles/300x600.css';
 
 import { connect } from 'react-redux';
 
 var image, logo, copyContainer, copy, shipping, ctaText, ctaContainer, wrapper, position, blur, colour, copySpan;
+
+// var fs = require('fs')
+// var BoxSDK = require('box-node-sdk')
+// var sdk = new BoxSDK({
+//   clientID: "a0acp1rny841hlx7j5fu72fr9pc2dx6f",
+//   clientSecret: "iakdpVAPMJlGNpxYP3fYXGwytJGMXr2u"
+// })
+//
+// var client = sdk.getBasicClient('d2UDfhHwX5JIew5BSMusrstff0QQOOe4');
+//
+// client.files.getDownloadURL('214021230655', null, function(error, url) {
+//
+// 	if (error) {
+// 		// handle error
+// 	}
+//
+// 	// write the file to disk
+// 	console.log(url);
+// });
+
 
 class Banner300x600 extends React.Component {
   constructor(props) {

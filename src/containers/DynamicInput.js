@@ -1,9 +1,9 @@
 import React from 'react';
-import _ from 'lodash';
+// import Select from 'react-select'
+// import 'react-select/dist/react-select.css'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux'
 import { updateCopy, updateCTA, updateProductColour } from '../actions/index';
-
 
 class DynamicInput extends React.Component{
   constructor(props) {
@@ -12,17 +12,24 @@ class DynamicInput extends React.Component{
     this.state = {
       copy: "THE TRUTH~IS RARELY PURE,~AND NEVER SIMPLE",
       cta: "SHOP JACKETS",
-      productColour: "white"
+      productColour: "white",
+      category: "CROPS"
     }
 
     this.onCopyInputChange = this.onCopyInputChange.bind(this);
     this.onCTAInputChange = this.onCTAInputChange.bind(this);
     this.onColourChange = this.onColourChange.bind(this);
+    this.onCategoryChange = this.onCategoryChange.bind(this);
+
   }
 
   componentDidMount() {
     this.props.updateCopy(this.state.copy)
     this.props.updateCTA(this.state.cta)
+  }
+
+  onCategoryChange(event) {
+    this.setState({ category: event.target.value })
   }
 
   onCopyInputChange(event) {
@@ -72,6 +79,15 @@ class DynamicInput extends React.Component{
               style={style.generic}
             />
           </div>
+          <div style={style.inputGroup}>
+            <select value={this.state.category} onChange={this.onCategoryChange}>
+              <option value="CROPS">CROPS</option>
+              <option value="PANTS">PANTS</option>
+              <option value="RUN">RUN</option>
+            </select>
+          </div>
+
+
         </form>
       </div>
     )
@@ -79,6 +95,9 @@ class DynamicInput extends React.Component{
 }
 
 const style = {
+  select: {
+    width: "200px"
+  },
   generic: {
     width: "300px",
     borderRadius: "5px",
