@@ -1,4 +1,17 @@
 
+@font-face {
+  font-family: 'CalibreSemibold';
+  src: url("./Calibre-Semibold.otf");
+}
+@font-face {
+  font-family: 'CalibreLight';
+  src: url("./Calibre-Light.otf");
+}
+@font-face {
+  font-family: 'CalibreBold';
+  src: url("./Calibre-Bold.otf");
+}
+
 body,body * {
   vertical-align:baseline;
   border:0 none;
@@ -8,32 +21,32 @@ body,body * {
 }
 
 .main {
-  display: block;
+  display: inline-block;
   margin: 50px;
   height: 600px;
-  width: 160px;
+  width: 300px;
   background-color: #ecf0f1;
   border-color: #ecf0f1;
   border-style: solid;
   border-width: 1px;
+  text-align: center;
   position: relative;
 }
 
 
-#image {
+.image {
   position: absolute;
-  width: 160px;
+  background-position: center top;
+  width: 300px;
   height: 600px;
   left: 0;
   top: 0;
 }
 
-#wrapper {
+.wrapper {
   box-sizing: border-box;
   width: 100%;
   position: absolute;
-  left: 9px;
-  height: auto;
 }
 
 .hidden {
@@ -44,75 +57,72 @@ body,body * {
   visibility: visible;
 }
 
-#logo {
+.logo {
   position: absolute;
   top: 20px;
-  left: 26px;
-  transform: scale(0.9);
   z-index: 10;
 }
 
-#copyContainer {
+.copyContainer {
   position: absolute;
-  /*bottom: 30px;*/
   width: auto;
-  text-align: left;
 }
 
-#copyContainer span {
-  padding: 10px 6px 4px 9px;
-  font-size: 14px;
+.copyContainer span {
+  padding: 10px 6px 4px 11px;
+  font-size: 16px;
   color: black;
   position: relative;
-  line-height: 32px;
+  line-height: 35px;
   letter-spacing: 4px;
   font-family: "CalibreLight";
   background-color: white;
 }
 
 
-#ctaContainer {
+.ctaContainer {
   border: 2px solid white;
   display: table;
   text-align: center;
-  top: 540px;
-  position: relative;
+  bottom: 29px;
+  position: absolute;
   overflow: hidden;
-  margin: auto;
+  z-index: 99;
 }
 
-#blur{
+.blur{
   position: absolute;
   top: 0;
+  left: 0;
   height: 100%;
   width: 100%;
   -webkit-filter: blur(10px);
-  filter: url('/media/blur.svg#blur');
+  filter: url('/media/blur.svg.blur');
   filter: blur(3px);
 }
 
-#ctaContainer p {
-  top: 2px;
+.ctaContainer p {
   color: white;
+  top: 4px;
   position: relative;
-  letter-spacing: 1px;
-  font-size: 11px;
-  margin: 7px 11px;
+  letter-spacing: 2px;
+  font-size: 16px;
+  margin: 9px 15px;
   font-family: "CalibreBold";
   z-index: 100;
 }
 
-#ctaContainer:hover {
+.ctaContainer:hover {
   cursor: pointer;
 }
 
-#shipping{
-  left: 6px;
-  bottom: 7px;
+
+.shipping{
+  bottom: 5px;
   position: absolute;
   font-family: "CalibreLight";
   color: white;
   z-index: 100;
   letter-spacing: 2px;
-  font-size: 8px;
+  font-size: 13px;
 }
