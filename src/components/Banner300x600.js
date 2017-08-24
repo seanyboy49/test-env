@@ -1,26 +1,28 @@
 import React from 'react';
-import whiteLogo from '../image/logo white.png'
-import blackLogo from '../image/logo black.png'
+// import whiteLogo from '../image/logo white.png'
+// import blackLogo from '../image/logo black.png'
 import styles from '../styles/300x600.css';
 
-import cropsA from '../image/CROPS/Image A/Q3_CROPS_ImageA_300x600.jpg'
-import cropsB from '../image/CROPS/Image B/Q3_CROPS_ImageB_300x600.jpg'
-import cropsC from '../image/CROPS/Image C/Q3_CROPS_ImageC_300x600.jpg'
-import cropsD from '../image/CROPS/Image D/Q3_CROPS_ImageD_300x600.jpg'
-
-import pantsA from '../image/PANTS/Image A/Q3_PANTS_ImageA_300x600.jpg'
-import pantsB from '../image/PANTS/Image B/Q3_PANTS_ImageB_300x600.jpg'
-import pantsC from '../image/PANTS/Image C/Q3_PANTS_ImageC_300x600.jpg'
-
-import runA from '../image/RUN/Image A/Q3_RUN_ImageA_300x600.jpg'
-import runB from '../image/RUN/Image B/Q3_RUN_ImageB_300x600.jpg'
-import runC from '../image/RUN/Image C/Q3_RUN_ImageC_300x600.jpg'
-import runD from '../image/RUN/Image D/Q3_RUN_ImageD_300x600.jpg'
+// import cropsA from '../image/CROPS/Image A/Q3_CROPS_ImageA_300x600.jpg'
+// import cropsB from '../image/CROPS/Image B/Q3_CROPS_ImageB_300x600.jpg'
+// import cropsC from '../image/CROPS/Image C/Q3_CROPS_ImageC_300x600.jpg'
+// import cropsD from '../image/CROPS/Image D/Q3_CROPS_ImageD_300x600.jpg'
+//
+// import pantsA from '../image/PANTS/Image A/Q3_PANTS_ImageA_300x600.jpg'
+// import pantsB from '../image/PANTS/Image B/Q3_PANTS_ImageB_300x600.jpg'
+// import pantsC from '../image/PANTS/Image C/Q3_PANTS_ImageC_300x600.jpg'
+//
+// import runA from '../image/RUN/Image A/Q3_RUN_ImageA_300x600.jpg'
+// import runB from '../image/RUN/Image B/Q3_RUN_ImageB_300x600.jpg'
+// import runC from '../image/RUN/Image C/Q3_RUN_ImageC_300x600.jpg'
+// import runD from '../image/RUN/Image D/Q3_RUN_ImageD_300x600.jpg'
 
 import { connect } from 'react-redux';
 
-var logo, copyContainer, shipping, ctaText, ctaContainer, wrapper, copySpan;
+var logo, copyContainer, shipping, ctaText, ctaContainer, wrapper, copySpan, whiteLogo, blackLogo;
 
+whiteLogo = "http://localhost:3001/images/logo%20white.png"
+blackLogo = "http://localhost:3001/images/logo%20black.png"
 
 class Banner300x600 extends React.Component {
   constructor(props) {
@@ -28,7 +30,7 @@ class Banner300x600 extends React.Component {
 
     this.state = {
       logo: whiteLogo,
-      image: cropsA,
+      image: "http://localhost:3001/images/CROPS/Image%20A/Q3_CROPS_ImageA_300x600.jpg",
       copyTextColour: "",
       ctaColour: "",
       shippingColour: "",
@@ -56,57 +58,58 @@ class Banner300x600 extends React.Component {
   componentWillReceiveProps(nextProps) {
     let cat = nextProps.productCategory;
     let imgVar = nextProps.imageVariant;
-
-    if(cat==="CROPS") {
-       switch(imgVar) {
-         case 'A':
-         this.setState({ image: cropsA })
-         break;
-         case 'B':
-         this.setState({ image: cropsB })
-         break;
-         case 'C':
-         this.setState({ image: cropsC })
-         break;
-         case 'D':
-         this.setState({ image: cropsD })
-         break;
-         default:
-         this.setState({ image: cropsA})
-       }
-    } else if(cat==="PANTS") {
-      switch(imgVar) {
-        case 'A':
-        this.setState({ image: pantsA })
-        break;
-        case 'B':
-        this.setState({ image: pantsB })
-        break;
-        case 'C':
-        this.setState({ image: pantsC })
-        break;
-        default:
-        this.setState({ image: pantsA})
-      }
-    } else if (cat==="RUN")  {
-      switch(imgVar) {
-        case 'A':
-        this.setState({ image: runA })
-        break;
-        case 'B':
-        this.setState({ image: runB })
-        break;
-        case 'C':
-        this.setState({ image: runC })
-        break;
-        case 'D':
-        this.setState({ image: runD })
-        break;
-        default:
-        this.setState({ image: runA})
-      }
-
-  }
+    let url = `http://localhost:3001/images/${cat}/Image%20${imgVar}/Q3_${cat}_Image${imgVar}_300x600.jpg`
+    this.setState({image: url})
+  //   if(cat==="CROPS") {
+  //      switch(imgVar) {
+  //        case 'A':
+  //        this.setState({ image: cropsA })
+  //        break;
+  //        case 'B':
+  //        this.setState({ image: cropsB })
+  //        break;
+  //        case 'C':
+  //        this.setState({ image: cropsC })
+  //        break;
+  //        case 'D':
+  //        this.setState({ image: cropsD })
+  //        break;
+  //        default:
+  //        this.setState({ image: cropsA})
+  //      }
+  //   } else if(cat==="PANTS") {
+  //     switch(imgVar) {
+  //       case 'A':
+  //       this.setState({ image: pantsA })
+  //       break;
+  //       case 'B':
+  //       this.setState({ image: pantsB })
+  //       break;
+  //       case 'C':
+  //       this.setState({ image: pantsC })
+  //       break;
+  //       default:
+  //       this.setState({ image: pantsA})
+  //     }
+  //   } else if (cat==="RUN")  {
+  //     switch(imgVar) {
+  //       case 'A':
+  //       this.setState({ image: runA })
+  //       break;
+  //       case 'B':
+  //       this.setState({ image: runB })
+  //       break;
+  //       case 'C':
+  //       this.setState({ image: runC })
+  //       break;
+  //       case 'D':
+  //       this.setState({ image: runD })
+  //       break;
+  //       default:
+  //       this.setState({ image: runA})
+  //     }
+  //
+  // }
 }
 
   onLogoChange(event) {
