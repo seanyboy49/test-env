@@ -1,5 +1,4 @@
 import React from 'react';
-import imageA from '../image/CROPS/Image A/Q3_CROPS_imageA_300x600.jpg'
 import whiteLogo from '../image/logo white.png'
 import blackLogo from '../image/logo black.png'
 import styles from '../styles/300x600.css';
@@ -46,7 +45,7 @@ class Banner300x600 extends React.Component {
     this.onCTAColourChange=this.onCTAColourChange.bind(this);
     this.onShippingColourChange=this.onShippingColourChange.bind(this);
     this.onLogoChange=this.onLogoChange.bind(this);
-
+    this.imageSelect=this.imageSelect.bind(this);
   }
 
   componentDidMount() {
@@ -59,6 +58,24 @@ class Banner300x600 extends React.Component {
     shipping = document.querySelector("#shipping300x600")
     blur = document.querySelector("#blur300x600");
     this.positionCopy(this.state.copyPosition);
+  }
+
+  imageSelect() {
+    let cat = this.props.productCategory;
+    let imgVar = this.props.imageVariant;
+    var renderImg;
+
+    if(cat.length !== 0) {
+      console.log("cat exists", cat);
+      const img = `../image/${cat}/Image ${imgVar}/Q3_${cat}_Image${imgVar}_300x600.jpg`
+      const string = '../image/CROPS/Image A/Q3_CROPS_ImageA_300x600.jpg'
+      renderImg = require(`${string}`)
+    } else {
+      console.log("cat not loaded yet");
+      renderImg = require('../image/CROPS/Image A/Q3_CROPS_ImageA_300x600.jpg')
+    }
+    console.log("renderImg", renderImg);
+    return renderImg
   }
 
   onLogoChange(event) {
@@ -159,7 +176,7 @@ class Banner300x600 extends React.Component {
     return(
       <div>
         <div className={styles.main}>
-          <img id="image300x600" className={styles.image} src={imageA} alt="productImage" ></img>
+          <img id="image300x600" className={styles.image} src={this.imageSelect()} alt="productImage" ></img>
           <img id="logo300x600" className={styles.logo} src={whiteLogo} alt="logo"></img>
           <div id = "wrapper300x600" className={styles.wrapper} style={this.copyPosition}>
             <div id="copyContainer300x600" className={styles.copyContainer}>
