@@ -19,7 +19,7 @@ import runD from '../image/RUN/Image D/Q3_RUN_ImageD_300x600.jpg'
 
 import { connect } from 'react-redux';
 
-var image, logo, copyContainer, copy, shipping, ctaText, ctaContainer, wrapper, position, blur, colour, copySpan;
+var logo, copyContainer, shipping, ctaText, ctaContainer, wrapper, copySpan;
 
 
 class Banner300x600 extends React.Component {
@@ -27,7 +27,7 @@ class Banner300x600 extends React.Component {
     super(props);
 
     this.state = {
-      logo: "white",
+      logo: whiteLogo,
       image: cropsA,
       copyTextColour: "",
       ctaColour: "",
@@ -40,18 +40,16 @@ class Banner300x600 extends React.Component {
     this.onCTAColourChange=this.onCTAColourChange.bind(this);
     this.onShippingColourChange=this.onShippingColourChange.bind(this);
     this.onLogoChange=this.onLogoChange.bind(this);
-    // this.imageSelect=this.imageSelect.bind(this);
   }
 
   componentDidMount() {
     logo = document.querySelector("#logo300x600");
-    image = document.querySelector("#image300x600");
     copyContainer = document.querySelector("#copyContainer300x600");
+    // copy = document.querySelector("#copyContainer300x600 span");
     ctaContainer = document.querySelector("#ctaContainer300x600");
     ctaText =  document.querySelector("#ctaContainer300x600 p");
     wrapper = document.querySelector("#wrapper300x600");
     shipping = document.querySelector("#shipping300x600")
-    blur = document.querySelector("#blur300x600");
     this.positionCopy(this.state.copyPosition);
   }
 
@@ -111,39 +109,8 @@ class Banner300x600 extends React.Component {
   }
 }
 
-  // imageSelect() {
-  //   let cat = this.props.productCategory;
-  //   let imgVar = this.props.imageVariant;
-  //   if(cat.length !== 0) {
-  //     console.log("cat exists", cat);
-  //
-  //     const img = cat.toLowerCase();+imgVar
-  //     this.setState({image: img})
-  //   }
-  //   return;
-  //
-  //   // var renderImg;
-  //   //
-  //   // if(cat.length !== 0) {
-  //   //   console.log("cat exists", cat);
-  //   //   const img = `../image/${cat}/Image ${imgVar}/Q3_${cat}_Image${imgVar}_300x600.jpg`
-  //   //   const string = '../image/CROPS/Image A/Q3_CROPS_ImageA_300x600.jpg'
-  //   //   renderImg = require(`${string}`)
-  //   // } else {
-  //   //   console.log("cat not loaded yet");
-  //   //   renderImg = require('../image/CROPS/Image A/Q3_CROPS_ImageA_300x600.jpg')
-  //   // }
-  //   // console.log("renderImg", renderImg);
-  // }
-
   onLogoChange(event) {
-    this.setState({ logo: event.target.value }, () => { // this.state is asynchronous so must pass function as a callback to ensure synchronous operation
-      if(this.state.logo==="black") {
-        logo.src=blackLogo
-      } else if(this.state.logo==="white"){
-        logo.src=whiteLogo
-      }
-    });
+    this.setState({ logo: event.target.value })
   }
 
   onShippingColourChange(event) {
@@ -236,7 +203,7 @@ class Banner300x600 extends React.Component {
       <div>
         <div className={styles.main}>
           <img id="image300x600" className={styles.image} src={this.state.image} alt="productImage" ></img>
-          <img id="logo300x600" className={styles.logo} src={whiteLogo} alt="logo"></img>
+          <img id="logo300x600" className={styles.logo} src={this.state.logo} alt="logo"></img>
           <div id = "wrapper300x600" className={styles.wrapper} style={this.copyPosition}>
             <div id="copyContainer300x600" className={styles.copyContainer}>
               {this.renderCopy(this.props.copy)}
@@ -260,6 +227,7 @@ class Banner300x600 extends React.Component {
             onChange={this.onCopyPositionChange}
             style={style.generic}
           />
+
           <label style={style.label}>CTA Colour</label>
           <input
             placeholder="Enter CTA Colour"
@@ -280,8 +248,8 @@ class Banner300x600 extends React.Component {
               White
               <input
                 type="radio"
-                value="white"
-                checked={this.state.logo==="white"}
+                value={whiteLogo}
+                checked={this.state.logo===whiteLogo}
                 onChange={this.onLogoChange}
                 style={style.radio}
 
@@ -291,8 +259,8 @@ class Banner300x600 extends React.Component {
               Black
               <input
                 type="radio"
-                value="black"
-                checked={this.state.logo==="black"}
+                value={blackLogo}
+                checked={this.state.logo===blackLogo}
                 onChange={this.onLogoChange}
                 style={style.radio}
               />
