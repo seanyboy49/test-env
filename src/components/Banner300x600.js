@@ -3,28 +3,23 @@ import whiteLogo from '../image/logo white.png'
 import blackLogo from '../image/logo black.png'
 import styles from '../styles/300x600.css';
 
+import cropsA from '../image/CROPS/Image A/Q3_CROPS_ImageA_300x600.jpg'
+import cropsB from '../image/CROPS/Image B/Q3_CROPS_ImageB_300x600.jpg'
+import cropsC from '../image/CROPS/Image C/Q3_CROPS_ImageC_300x600.jpg'
+import cropsD from '../image/CROPS/Image D/Q3_CROPS_ImageD_300x600.jpg'
+
+import pantsA from '../image/PANTS/Image A/Q3_PANTS_ImageA_300x600.jpg'
+import pantsB from '../image/PANTS/Image B/Q3_PANTS_ImageB_300x600.jpg'
+import pantsC from '../image/PANTS/Image C/Q3_PANTS_ImageC_300x600.jpg'
+
+import runA from '../image/RUN/Image A/Q3_RUN_ImageA_300x600.jpg'
+import runB from '../image/RUN/Image B/Q3_RUN_ImageB_300x600.jpg'
+import runC from '../image/RUN/Image C/Q3_RUN_ImageC_300x600.jpg'
+import runD from '../image/RUN/Image D/Q3_RUN_ImageD_300x600.jpg'
+
 import { connect } from 'react-redux';
 
 var image, logo, copyContainer, copy, shipping, ctaText, ctaContainer, wrapper, position, blur, colour, copySpan;
-
-// var fs = require('fs')
-// var BoxSDK = require('box-node-sdk')
-// var sdk = new BoxSDK({
-//   clientID: "a0acp1rny841hlx7j5fu72fr9pc2dx6f",
-//   clientSecret: "iakdpVAPMJlGNpxYP3fYXGwytJGMXr2u"
-// })
-//
-// var client = sdk.getBasicClient('d2UDfhHwX5JIew5BSMusrstff0QQOOe4');
-//
-// client.files.getDownloadURL('214021230655', null, function(error, url) {
-//
-// 	if (error) {
-// 		// handle error
-// 	}
-//
-// 	// write the file to disk
-// 	console.log(url);
-// });
 
 
 class Banner300x600 extends React.Component {
@@ -33,7 +28,7 @@ class Banner300x600 extends React.Component {
 
     this.state = {
       logo: "white",
-      image: null,
+      image: cropsA,
       copyTextColour: "",
       ctaColour: "",
       shippingColour: "",
@@ -45,7 +40,7 @@ class Banner300x600 extends React.Component {
     this.onCTAColourChange=this.onCTAColourChange.bind(this);
     this.onShippingColourChange=this.onShippingColourChange.bind(this);
     this.onLogoChange=this.onLogoChange.bind(this);
-    this.imageSelect=this.imageSelect.bind(this);
+    // this.imageSelect=this.imageSelect.bind(this);
   }
 
   componentDidMount() {
@@ -60,23 +55,86 @@ class Banner300x600 extends React.Component {
     this.positionCopy(this.state.copyPosition);
   }
 
-  imageSelect() {
-    let cat = this.props.productCategory;
-    let imgVar = this.props.imageVariant;
-    var renderImg;
+  componentWillReceiveProps(nextProps) {
+    let cat = nextProps.productCategory;
+    let imgVar = nextProps.imageVariant;
 
-    if(cat.length !== 0) {
-      console.log("cat exists", cat);
-      const img = `../image/${cat}/Image ${imgVar}/Q3_${cat}_Image${imgVar}_300x600.jpg`
-      const string = '../image/CROPS/Image A/Q3_CROPS_ImageA_300x600.jpg'
-      renderImg = require(`${string}`)
-    } else {
-      console.log("cat not loaded yet");
-      renderImg = require('../image/CROPS/Image A/Q3_CROPS_ImageA_300x600.jpg')
-    }
-    console.log("renderImg", renderImg);
-    return renderImg
+    if(cat==="CROPS") {
+       switch(imgVar) {
+         case 'A':
+         this.setState({ image: cropsA })
+         break;
+         case 'B':
+         this.setState({ image: cropsB })
+         break;
+         case 'C':
+         this.setState({ image: cropsC })
+         break;
+         case 'D':
+         this.setState({ image: cropsD })
+         break;
+         default:
+         this.setState({ image: cropsA})
+       }
+    } else if(cat==="PANTS") {
+      switch(imgVar) {
+        case 'A':
+        this.setState({ image: pantsA })
+        break;
+        case 'B':
+        this.setState({ image: pantsB })
+        break;
+        case 'C':
+        this.setState({ image: pantsC })
+        break;
+        default:
+        this.setState({ image: pantsA})
+      }
+    } else if (cat==="RUN")  {
+      switch(imgVar) {
+        case 'A':
+        this.setState({ image: runA })
+        break;
+        case 'B':
+        this.setState({ image: runB })
+        break;
+        case 'C':
+        this.setState({ image: runC })
+        break;
+        case 'D':
+        this.setState({ image: runD })
+        break;
+        default:
+        this.setState({ image: runA})
+      }
+
   }
+}
+
+  // imageSelect() {
+  //   let cat = this.props.productCategory;
+  //   let imgVar = this.props.imageVariant;
+  //   if(cat.length !== 0) {
+  //     console.log("cat exists", cat);
+  //
+  //     const img = cat.toLowerCase();+imgVar
+  //     this.setState({image: img})
+  //   }
+  //   return;
+  //
+  //   // var renderImg;
+  //   //
+  //   // if(cat.length !== 0) {
+  //   //   console.log("cat exists", cat);
+  //   //   const img = `../image/${cat}/Image ${imgVar}/Q3_${cat}_Image${imgVar}_300x600.jpg`
+  //   //   const string = '../image/CROPS/Image A/Q3_CROPS_ImageA_300x600.jpg'
+  //   //   renderImg = require(`${string}`)
+  //   // } else {
+  //   //   console.log("cat not loaded yet");
+  //   //   renderImg = require('../image/CROPS/Image A/Q3_CROPS_ImageA_300x600.jpg')
+  //   // }
+  //   // console.log("renderImg", renderImg);
+  // }
 
   onLogoChange(event) {
     this.setState({ logo: event.target.value }, () => { // this.state is asynchronous so must pass function as a callback to ensure synchronous operation
@@ -173,10 +231,11 @@ class Banner300x600 extends React.Component {
   }
 
   render() {
+
     return(
       <div>
         <div className={styles.main}>
-          <img id="image300x600" className={styles.image} src={this.imageSelect()} alt="productImage" ></img>
+          <img id="image300x600" className={styles.image} src={this.state.image} alt="productImage" ></img>
           <img id="logo300x600" className={styles.logo} src={whiteLogo} alt="logo"></img>
           <div id = "wrapper300x600" className={styles.wrapper} style={this.copyPosition}>
             <div id="copyContainer300x600" className={styles.copyContainer}>
