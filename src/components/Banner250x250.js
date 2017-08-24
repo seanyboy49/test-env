@@ -1,5 +1,5 @@
 import React from 'react';
-// import imageA from '../image/CROPS/Image A/Q3_CROPS_ImageA_250x250.jpg'
+import imageA from '../image/CROPS/Image A/Q3_CROPS_ImageA_250x250.jpg'
 import whiteLogo from '../image/logo white.png'
 import styles from '../styles/250x250.css';
 
