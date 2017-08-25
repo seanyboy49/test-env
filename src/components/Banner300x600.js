@@ -58,8 +58,12 @@ class Banner300x600 extends React.Component {
   componentWillReceiveProps(nextProps) {
     let cat = nextProps.productCategory;
     let imgVar = nextProps.imageVariant;
-    let url = `http://localhost:3001/images/${cat}/Image%20${imgVar}/Q3_${cat}_Image${imgVar}_300x600.jpg`
-    this.setState({image: url})
+    let url = `/images/${cat}/Image%20${imgVar}/Q3_${cat}_Image${imgVar}_300x600.jpg`
+
+    fetch(url)
+      .then(res => this.setState({image: res.url}))
+    // let url = `http://localhost:3001/images/${cat}/Image%20${imgVar}/Q3_${cat}_Image${imgVar}_300x600.jpg`
+    // this.setState({image: url})
   //   if(cat==="CROPS") {
   //      switch(imgVar) {
   //        case 'A':
