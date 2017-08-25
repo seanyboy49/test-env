@@ -53,6 +53,7 @@
   "devDependencies": {},
   "scripts": {
     "start": "node scripts/start.js",
+    "heroku-postbuild": "cd react-backend && node bin/www",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom"
   },
